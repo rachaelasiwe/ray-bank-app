@@ -16,7 +16,7 @@ import react from '@vitejs/plugin-react'
 //   return config
 // })
 
-export default defaultConfig({
+export default defineConfig({
   plugins: [react()],
   base:"/ray-bank-app/"
 })
