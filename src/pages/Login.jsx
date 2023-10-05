@@ -33,9 +33,9 @@ const Login = () => {
     }
 
     const existingUser = () => {
-        // set_modal_content(<ExistingCustomer />);
-        // handleShowModal(true);
-        navigate('/account');
+        set_modal_content(<ExistingCustomer />);
+        handleShowModal(true);
+        //navigate('/account');
 
     }
     

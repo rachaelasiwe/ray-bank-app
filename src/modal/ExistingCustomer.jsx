@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import { styled } from 'styled-components'
 import { Button } from '../components'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import Api from '../Api';
 
 const ExistingCustomer = () => {
@@ -9,7 +9,7 @@ const ExistingCustomer = () => {
     const [account_number, set_account_number] = useState("");
     const [password, set_password] = useState("");
     const [show, set_show] = useState(false);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
         const body = {
             password
@@ -37,14 +37,15 @@ const ExistingCustomer = () => {
     const submitForm = (e) => {
         e.preventDefault();
         const body = {
-            Type_of_Account,
-            Account_Number,
+            type_of_account,
+            account_number,
             password
         }
-        if (!Type_of_Account && Account_Number) {
+        if (!type_of_account || !account_number || !password ) {
             alert("All fields are required")
             return;
         }
+        navigate('/account');
     }
 
     // useEffect(() => {
@@ -59,9 +60,9 @@ const ExistingCustomer = () => {
               <div>
                     <label htmlFor="">Type Of Account</label>
                     <select value={type_of_account} onChange={(e)=>set_type_of_account(e.target.value)}>
-                        <option value="">Type of Account</option>
-                        <option value="">Savings</option>
-                        <option value="">Current</option>
+                        <option value="1">Type of Account</option>
+                        <option value="2">Savings</option>
+                        <option value="3">Current</option>
                     </select>
               </div>
               <div>
