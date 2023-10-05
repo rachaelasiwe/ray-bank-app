@@ -16,6 +16,7 @@ import { AddCustomer, ExistingCustomer } from '../modal';
 import { AiOutlineMenu as Menu } from 'react-icons/ai';
 import { FaTimes as Cancel } from 'react-icons/fa'
 import { TbRulerMeasure } from 'react-icons/tb';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -23,6 +24,7 @@ const Login = () => {
     const [country, set_country] = useState(Nigeria);
     const [showNav, setShowNav] = useState(false);
     // const navRef = useRef();
+    const navigate = useNavigate();
 
     const { handleShowModal, set_modal_content} = useModal();
   const addUser = () => {
@@ -31,8 +33,10 @@ const Login = () => {
     }
 
     const existingUser = () => {
-        set_modal_content(<ExistingCustomer/> )
-        handleShowModal(true);
+        // set_modal_content(<ExistingCustomer />);
+        // handleShowModal(true);
+        navigate('/account');
+
     }
     
     const showNavBar = () => {
