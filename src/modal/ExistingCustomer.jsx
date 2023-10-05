@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react'
 import { styled } from 'styled-components'
 import { Button } from '../components'
 import { useNavigate } from 'react-router-dom';
+import { useModal } from '../hooks/useModal';
 // import Api from '../Api';
 
 const ExistingCustomer = () => {
@@ -10,6 +11,7 @@ const ExistingCustomer = () => {
     const [password, set_password] = useState("");
     const [show, set_show] = useState(false);
     const navigate = useNavigate();
+    const {handleShowModal } = useModal();
 
         const body = {
             password
@@ -45,6 +47,7 @@ const ExistingCustomer = () => {
             alert("All fields are required")
             return;
         }
+        handleShowModal();
         navigate('/account');
     }
 
